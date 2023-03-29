@@ -23,7 +23,7 @@ btnAgregar.addEventListener("click", function(event){
     let lista = "Los siguientes campos deben se llenado correctamente: <ul>";
    if (txtNombre.value.length == 0) {
         txtNombre.style.border="solid thin red";//Borde en rojo
-        lista += "<li>Se debe escribir un nombre Valido</li>";  
+        lista += "<li>Se debe escribir un nombre Válido</li>";  
         alertValidaciones.style.display="block";
    }else{
         txtNombre.style.border = "";
@@ -31,7 +31,7 @@ btnAgregar.addEventListener("click", function(event){
 
    if (txtNumber.value.length == 0) {
         txtNumber.style.border="solid thin red";//Borde en rojo
-        lista+="<li>Se debe escribir una cantidad Valida</li>";  
+        lista+="<li>Se debe escribir una cantidad Válida</li>";  
         alertValidaciones.style.display="block";
     }else{
         txtNumber.style.border = "";
@@ -46,5 +46,5 @@ txtNombre.addEventListener("blur", function(event){//blur cuando se sale del cam
 });//txtNumbre.blur
 txtNumber.addEventListener("blur", function(event){
     event.preventDefault();
-    txtNumber.value=txtNombre.value.trim();
+    txtNumber.value=txtNumber.value.trim();
 });//txtNumber.blur
