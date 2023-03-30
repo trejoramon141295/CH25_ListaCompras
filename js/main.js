@@ -33,6 +33,10 @@ btnClear.addEventListener("click", function (event) {
     contadorProductos.innerText="0";
     productosTotal.innerText = "0";
     precioTotal.innerText = "0";
+
+    localStorage.setItem("contadorProductos",contador);
+    localStorage.setItem("totalEnProductos",totalEnProductos);
+    localStorage.setItem("costoTotal",costoTotal.toFixed(2));
 });//clear btnclear
 
 function validarCantidad(){
@@ -96,6 +100,9 @@ btnAgregar.addEventListener("click", function (event) {
         productosTotal.innerText= totalEnProductos;
         costoTotal += precio * parseFloat(txtNumber.value);
         precioTotal.innerText = `$ ${costoTotal.toFixed(2)}`; 
+        localStorage.setItem("contadorProductos",contador);
+        localStorage.setItem("totalEnProductos",totalEnProductos);
+        localStorage.setItem("costoTotal",costoTotal.toFixed(2));
         txtNombre.value = "";//Limpiar campos
         txtNumber.value = "";
         txtNombre.focus();//llevar al campo del nombre
@@ -111,3 +118,25 @@ txtNumber.addEventListener("blur", function (event) {
     event.preventDefault();
     txtNumber.value = txtNumber.value.trim();
 });//txtNumber.blur
+
+//Evento al cargar la pagina
+window.addEventListener("load",function(event){
+    if(localStorage.getItem("contadorProductos")==null){
+        localStorage.setItem("contadorProductos","0");
+    }//Establece a 0 si no hay valores para evitar el NaN
+    if(localStorage.getItem("totalEnProductos")==null){
+        localStorage.setItem("totalEnProductos","0");
+    }//Establece a 0 si no hay valores para evitar el NaN
+    if(localStorage.getItem("costoTotal")==null){
+        localStorage.setItem("costoTotal","0.0");
+    }//Establece a 0.0 si no hay valores para evitar el NaN
+
+    contador = parseInt(localStorage.getItem("contadorProductos"));
+    totalEnProductos =parseInt(localStorage.getItem("totalEnProductos"));
+    costoTotal =parseFloat(localStorage.getItem("costoTotal"));
+
+    contadorProductos.innerText=contador;
+    productosTotal.innerText = totalEnProductos;
+    precioTotal.innerText = `$ ${costoTotal}`;
+
+});
