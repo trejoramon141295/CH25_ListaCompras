@@ -147,9 +147,10 @@ window.addEventListener("load",function(event){
         localStorage.setItem("resumen",resumen);//No olvidar
     }//if
     let res = JSON.parse(localStorage.getItem("resumen"));
+    //Validando que existe el datos
     if(localStorage.getItem("datos")!= null){
         datos = JSON.parse(localStorage.getItem("datos"));
-
+        
         datos.forEach(r => {
             let row = ` <tr>
                         <th>${r.id}</th>
