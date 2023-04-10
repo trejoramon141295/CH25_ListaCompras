@@ -43,7 +43,15 @@ function createCards(prods){
     prods.forEach(prod => {
         mainProds.insertAdjacentHTML("beforeend",
         `   <div class="card col" style="width: 18rem;">
-                <img src="${prod.image}" class="card-img-top" alt="${prod.description}">
+                <img src="${prod.image}" class="card-img-top" alt="${prod.description}"
+                style="max-width:15rem;height:15rem;>
+                <div class="card-body">
+                    <h5 class="card-title">${prod.title}</h5>
+                    <p class="card-text"><strong>${prod.category}</strong></p>
+                    <p class="card-text">${prod.description.slice(0,20)} ...</p>
+
+
+                </div>
 
             </div>
         `)
